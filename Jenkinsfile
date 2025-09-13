@@ -1,6 +1,12 @@
 pipeline {
   agent any
-  options { timestamps(); disableConcurrentBuilds(); buildDiscarder(logRotator(numToKeepStr:'15')); skipDefaultCheckout(true); timeout(time:30, unit:'30') }
+  options {
+    timestamps()
+    disableConcurrentBuilds()
+    buildDiscarder(logRotator(numToKeepStr:'15'))
+    skipDefaultCheckout(true)
+    timeout(time: 30, unit: 'MINUTES')
+  }
 
   environment {
     PROJECT_ID   = "devopstask-472012"
